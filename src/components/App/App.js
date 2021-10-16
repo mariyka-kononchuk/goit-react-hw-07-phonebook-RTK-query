@@ -8,13 +8,17 @@ import Filter from '../Filter';
 import ContactList from '../ContactList';
 import SpinnerLoader from '../Loader';
 
-import { useFetchContactsQuery } from '../../redux/contacts/contactsSlice'
+import {
+  useFetchContactsQuery,
+  useDeleteContactMutation
+} from '../../redux/contacts/contactsSlice'
 
 
 function App({ fetchContacts }) {
   const { data, isFetching } = useFetchContactsQuery();
-  console.log(data, isFetching);
-  // fetchContacts();
+  const [deleteContact]  = useDeleteContactMutation();
+  
+  
     return (
       <Container>
         <div>
@@ -23,7 +27,7 @@ function App({ fetchContacts }) {
           <h2 className={s.titleContacts}>Contacts</h2>
           <Filter />
           {isFetching && <SpinnerLoader />}
-          {data && <ContactList contacts={data}/>}
+          {data && <ContactList contacts={data} onDelete={deleteContact}/>}
         </div>
       </Container>
     );

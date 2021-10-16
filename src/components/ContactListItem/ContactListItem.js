@@ -16,13 +16,13 @@ const ContactListItem = ({contacts, onDeleteContact }) => (
     </div> 
 )
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onDeleteContact: (contactId) => dispatch(deleteContact(contactId)),
-  }
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     onDeleteContact: (contactId) => dispatch(deleteContact(contactId)),
+//   }
+// }
 
-export default connect(null, mapDispatchToProps)(ContactListItem);
+export default ContactListItem;
 
 ContactListItem.propTypes = {
   contacts: PropTypes.shape({

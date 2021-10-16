@@ -7,11 +7,11 @@ import ContactListItem from '../ContactListItem';
 import { getVisibleContacts } from '../../redux/contacts/contacts-selectors';
 
 
-const ContactList = ({contacts}) => (
+const ContactList = ({contacts, onDelete}) => (
     <ul className={s.list}>
         {contacts.map((contacts)=> (
             <li key={contacts.id}  >
-                <ContactListItem contacts={contacts}/>
+                <ContactListItem contacts={contacts} onDeleteContact={onDelete}/>
             </li>
         ))}
     </ul>
