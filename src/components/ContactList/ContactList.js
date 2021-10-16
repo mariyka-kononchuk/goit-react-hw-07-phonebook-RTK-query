@@ -17,13 +17,13 @@ const ContactList = ({contacts}) => (
     </ul>
 )
 
-const mapStateToProps = (state) => {
-    return {
-        contacts: getVisibleContacts(state)
-    }
-  }
+// const mapStateToProps = (state) => {
+//     return {
+//         contacts: getVisibleContacts(state)
+//     }
+//   }
 
-export default connect(mapStateToProps, null)(ContactList);
+// export default connect(mapStateToProps, null)(ContactList);
 
 ContactList.propTypes = {
     contacts: PropTypes.arrayOf(
@@ -32,5 +32,7 @@ ContactList.propTypes = {
         })
     ),
 };
+
+export default ContactList;
 
  

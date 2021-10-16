@@ -6,9 +6,15 @@ import Container from '../Container';
 import ContactForm from '../ContactForm';
 import Filter from '../Filter';
 import ContactList from '../ContactList';
+import SpinnerLoader from '../Loader';
+
+import { useFetchContactsQuery } from '../../redux/contacts/contactsSlice'
+
 
 function App({ fetchContacts }) {
-  fetchContacts();
+  const { data, isFetching } = useFetchContactsQuery();
+  console.log(data, isFetching);
+  // fetchContacts();
     return (
       <Container>
         <div>
@@ -16,7 +22,8 @@ function App({ fetchContacts }) {
           <ContactForm />
           <h2 className={s.titleContacts}>Contacts</h2>
           <Filter />
-          <ContactList />
+          {isFetching && <SpinnerLoader />}
+          {data && <ContactList contacts={data}/>}
         </div>
       </Container>
     );
