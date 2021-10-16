@@ -1,5 +1,4 @@
 import  { useState } from 'react';
-import PropTypes from 'prop-types';
 import s from './ContactForm.module.css';
 import { useCreateContactMutation } from '../../redux/contacts/contactsSlice';
 
@@ -24,9 +23,8 @@ export default function SignupForm ()  {
     }
 
      const handleSubmit = e => {
-         e.preventDefault();
-         createContact({ name, number });
-        // onAddContact({ name, number });
+        e.preventDefault();
+        createContact({ name, number });
         reset();
     }
 
@@ -69,6 +67,3 @@ export default function SignupForm ()  {
     )
 }
 
-// SignupForm.propTypes = {
-//     onAddContact: PropTypes.func.isRequired,
-// };
